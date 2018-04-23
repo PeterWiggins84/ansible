@@ -566,7 +566,8 @@ class PlayContext(Base):
                     becomecmd = '%s %s -u %s %s' % (exe, flags, self.become_user, command)
 
             elif self.become_method == 'usdo':
-                becomecmd = '%s %s %s' % (exe, flags, cmd)
+                becomecmd = 'sudo %s %s' % (flags, cmd)
+                
             elif self.become_method == 'su':
 
                 # passing code ref to examine prompt as simple string comparisson isn't good enough with su
